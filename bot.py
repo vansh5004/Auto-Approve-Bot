@@ -20,21 +20,43 @@ gif = [
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main process ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+# @app.on_chat_join_request(filters.group | filters.channel & ~filters.private)
+# async def approve(_, m : Message):
+#   op = m.chat
+#    kk = m.from_user
+#    try:
+#        add_group(m.chat.id)
+#        await app.approve_chat_join_request(op.id, kk.id)
+#        img = random.choice(gif)
+#        await app.send_video(kk.id,img, "**{},\nWelcome To {}\n\n__By : @MovieVillaYT__**".format(m.from_user.mention, m.chat.title))
+#        add_user(kk.id)
+#    except errors.PeerIdInvalid as e:
+#        print("user isn't start bot(means group)")
+#    except Exception as err:
+#        print(str(err))    
+
+# Define the chat join request handler
 @app.on_chat_join_request(filters.group | filters.channel & ~filters.private)
-async def approve(_, m : Message):
+async def approve(_, m: Message):
     op = m.chat
     kk = m.from_user
     try:
         add_group(m.chat.id)
         await app.approve_chat_join_request(op.id, kk.id)
-        img = random.choice(gif)
-        await app.send_video(kk.id,img, "**{},\nWelcome To {}\n\n__By : @MovieVillaYT__**".format(m.from_user.mention, m.chat.title))
+
+        # Send a video as a welcome message
+        await app.send_video(kk.id, gif_url, caption=f"**{m.from_user.mention},\nWelcome To {m.chat.title}!**\n\n__By : @MovieVillaYT__")
+
         add_user(kk.id)
     except errors.PeerIdInvalid as e:
-        print("user isn't start bot(means group)")
+        print("User isn't starting the bot (means group)")
     except Exception as err:
-        print(str(err))    
- 
+        print(str(err))
+
+
+
+
+
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Start ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 @app.on_message(filters.command("start"))
