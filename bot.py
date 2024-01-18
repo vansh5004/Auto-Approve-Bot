@@ -45,7 +45,7 @@ async def approve(_, m: Message):
         await app.approve_chat_join_request(op.id, kk.id)
 
         # Send a video as a welcome message
-        await app.send_video(kk.id, gif_url, caption=f"**{m.from_user.mention},\nWelcome To {m.chat.title}!**\n\n__By : @MovieVillaYT__")
+        await app.send_video(kk.id, gif_url, caption=f"**{m.from_user.mention},\nWelcome To {m.chat.title}!**\n\n__By : @None_090")
 
         add_user(kk.id)
     except errors.PeerIdInvalid as e:
