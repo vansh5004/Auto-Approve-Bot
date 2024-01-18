@@ -9,6 +9,15 @@
 <a href="https://heroku.com/deploy?template=https://github.com/NobiDeveloper/Auto-Approve-Bot"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"></p></a>
 </details>
 
+<details><summary>Deploy To Koyeb</summary>
+<br>
+<b>The fastest way to deploy the application is to click the Deploy to Koyeb button below.</b>
+<br>
+<br>
+
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/vansh5004/Auto-Approve-Bot&branch=main&name=TG_FILTER_BOT)
+
+
   
 <details><summary>📌 Deploy to Okteto </summary>
   
